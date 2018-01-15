@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    tools:context="com.kumar.mrdroid.picklocations.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+            
+            <Button
+                android:id="@+id/btnMap"
+                style="@style/buttonStyle"
+                android:text="Map"
+                />
+
+            <Button
+                android:id="@+id/btnSatellite"
+                style="@style/buttonStyle"
+                android:text="Satellite"
+                />
+
+            <Button
+                android:id="@+id/btnHybrid"
+                style="@style/buttonStyle"
+                android:text="Hybrid"
+                />
+
+        </LinearLayout>
+
+        <fragment
+            android:id="@+id/map"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.google.android.gms.maps.MapFragment"
+            />
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

@@ -14,24 +14,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="com.google.android.gms.maps.MapFragment"
-        map:cameraTargetLat="28.4890"
-        map:cameraTargetLng="77.3120"
+        map:cameraTargetLat="40.7484"
+        map:cameraTargetLng="-73.9857"
         map:cameraBearing="112.5"
         map:cameraTilt="65"
-        map:cameraZoom="35"
+        map:cameraZoom="17"
 
         />
 
-    <!--*
+    <!--
     *   New York, USA        lat = 40.7484,   lng = -73.9857
-    *   Sasaram, Bihar       lat = 24.953514, lng = 84.011787
-    *   Gurdhihan, Rohtas    lat =  25.088446, lng = 84.156778
-    *   3rd 60feet road,Molarband extn.,
-                New Delhi    lat =  28.489013, lng = 77.312063
-
-
-
-    -->
+        -->
 
 
 

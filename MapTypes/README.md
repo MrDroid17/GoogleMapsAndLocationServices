@@ -4,6 +4,7 @@ this repository uses different **MapTypes** Programmatically  with specific coor
 
   ![](map.png)
 
+---
 
 * **Map Types:**
   * Normal Map

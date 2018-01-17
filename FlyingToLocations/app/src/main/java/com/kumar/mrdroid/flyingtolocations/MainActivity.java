@@ -18,33 +18,32 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     GoogleMap m_map;
     boolean mapReady = false;
-    Button btnSeattle, btnTokyo, btnDublin, btnVillage, btnDelhi;
+    Button btnNewYork, btnTokyo, btnVillage, btnDelhi;
+
+    /***
+     * *  Coordinate for Statue of Liberty,New York(USA) 40.6892° N, 74.0445° W
+     *  lat -  40.6892°° N,
+     *  lng -  74.0445° W
+     */
 
     static final CameraPosition NEWYORK = CameraPosition.builder().
-            target(new LatLng(28.7041, 77.1025)).
-            zoom(21).
+            target(new LatLng(40.7484, -73.9857)).
+            zoom(17).
             bearing(0).
-            tilt(45).
+            tilt(65).
             build();
 
+
+    /***
+     *  Coordinate for IndiaGate, New Delhi(India)
+     *  lat -  28.6129° N,
+     *  lng -  77.2295° E
+     */
     static final CameraPosition DELHI = CameraPosition.builder().
-            target(new LatLng(40.7127, -74.0059)).
+            target(new LatLng(28.6129, 77.2295)).
             zoom(17).
             bearing(0).
-            tilt(45).
-            build();
-
-    static final CameraPosition SEATTlE = CameraPosition.builder().
-            target(new LatLng(47.6204, -122.3491)).
-            zoom(17).
-            bearing(0).
-            tilt(45).build();
-
-    static final CameraPosition DUBLIN = CameraPosition.builder().
-            target(new LatLng(53.3478, -6.2597)).
-            zoom(17).
-            bearing(90).
-            tilt(45).
+            tilt(65).
             build();
 
     static final CameraPosition TOKYO = CameraPosition.builder().
@@ -58,43 +57,70 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             target(new LatLng(25.0885, 84.156778)).
             zoom(17).
             bearing(90).
+            tilt(65).
+            build();
+
+    /***
+     * camera position for Seattle and dublin
+     * @param savedInstanceState
+     */
+
+    /*
+    static final CameraPosition SEATTlE = CameraPosition.builder().
+            target(new LatLng(47.6204, -122.3491)).
+            zoom(17).
+            bearing(0).
+            tilt(45).build();
+
+    static final CameraPosition DUBLIN = CameraPosition.builder().
+            target(new LatLng(53.3478, -6.2597)).
+            zoom(17).
+            bearing(90).
             tilt(45).
             build();
+    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnDublin = (Button) findViewById(R.id.btn_dublin);
-        btnSeattle = (Button) findViewById(R.id.btn_seattle);
+        btnNewYork = (Button) findViewById(R.id.btn_newYork);
         btnTokyo = (Button) findViewById(R.id.btn_tokyo);
         btnVillage = (Button) findViewById(R.id.btn_Village) ;
         btnDelhi = (Button) findViewById(R.id.btn_Delhi) ;
 
+        btnDelhi.setEnabled(false);
 
+        btnDelhi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mapReady){
+                    flyTo(DELHI);
+                }
 
-        btnDublin.setOnClickListener(new View.OnClickListener() {
+                btnDelhi.setEnabled(false);
+                btnNewYork.setEnabled(true);
+                btnTokyo.setEnabled(true);
+                btnVillage.setEnabled(true);
+            }
+        });
+
+        btnNewYork.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 if(mapReady){
-                    flyTo(DUBLIN);
+                    flyTo(NEWYORK);
                 }
+                btnDelhi.setEnabled(true);
+                btnNewYork.setEnabled(false);
+                btnTokyo.setEnabled(true);
+                btnVillage.setEnabled(true);
 
             }
         });
 
-        btnSeattle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if(mapReady){
-                    flyTo(SEATTlE);
-                }
-
-            }
-        });
 
         btnTokyo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +129,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 if(mapReady){
                     flyTo(TOKYO);
                 }
+
+                btnDelhi.setEnabled(true);
+                btnNewYork.setEnabled(true);
+                btnTokyo.setEnabled(false);
+                btnVillage.setEnabled(true);
 
             }
         });
@@ -113,17 +144,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 if(mapReady){
                     flyTo(MY_VILLAGE);
                 }
+
+                btnDelhi.setEnabled(true);
+                btnNewYork.setEnabled(true);
+                btnTokyo.setEnabled(true);
+                btnVillage.setEnabled(false);
             }
         });
 
-        btnDelhi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(mapReady){
-                    flyTo(DELHI);
-                }
-            }
-        });
+
 
 
         MapFragment mapFragment= (MapFragment) getFragmentManager().findFragmentById(R.id.map);
@@ -136,12 +165,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         mapReady = true;
         m_map = googleMap;
-        m_map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-        flyTo(NEWYORK);
+        m_map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        flyTo(DELHI);
 
     }
 
     private void flyTo(CameraPosition target){
-        m_map.animateCamera(CameraUpdateFactory.newCameraPosition(target), 10000, null);
+        m_map.animateCamera(CameraUpdateFactory.newCameraPosition(target), 5000, null);
     }
 }

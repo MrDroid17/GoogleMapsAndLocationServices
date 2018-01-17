@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="5dp"
+    android:paddingRight="2dp"
+    android:paddingLeft="2dp"
+    android:paddingBottom="2dp"
     tools:context="com.kumar.mrdroid.flyingtolocations.MainActivity">
 
     <LinearLayout
@@ -24,44 +26,26 @@
             >
 
             <Button
-                android:id="@+id/btn_seattle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Seattle"
-                android:textSize="12dp"
-                />
+                android:id="@+id/btn_Delhi"
+                style="@style/buttonStyle"
+                android:text="@string/city_delhi"/>
+
+            <Button
+                android:id="@+id/btn_newYork"
+                style="@style/buttonStyle"
+                android:text="@string/city_new_york"/>
 
             <Button
                 android:id="@+id/btn_tokyo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12dp"
-                android:layout_weight="1"
-                android:text="Tokyo"/>
+                style="@style/buttonStyle"
+                android:text="@string/city_tokyo"/>
 
-            <Button
-                android:id="@+id/btn_dublin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Dublin"/>
+
 
             <Button
                 android:id="@+id/btn_Village"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12dp"
-                android:layout_weight="1"
-                android:text="Village"/>
-
-            <Button
-                android:id="@+id/btn_Delhi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12dp"
-                android:layout_weight="1"
-                android:text="delhi"/>
+                style="@style/buttonStyle"
+                android:text="@string/city_HomeTown"/>
 
 
 

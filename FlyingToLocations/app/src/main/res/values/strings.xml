@@ -2,7 +2,7 @@
     <string name="app_name">FlyingToLocations</string>
     <string name="city_new_york">New York</string>
     <string name="city_tokyo">Tokyo</string>
-    <string name="city_HomeTown">Village</string>
+    <string name="city_HomeTown">My Town</string>
     <string name="city_delhi">New Delhi</string>
 
 </resources>

@@ -53,8 +53,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             tilt(45).
             build();
 
-    static final CameraPosition MY_VILLAGE= CameraPosition.builder().
-            target(new LatLng(25.0885, 84.156778)).
+    /***
+     *  Coordinate for Tomb of SherShah Suri, Sasaram, Bihar(India) 24.9481° N, 84.0093° E
+     *  lat -  24.9481° N,
+     *  lng -  84.0093° E
+     */
+    static final CameraPosition HOMETOWN= CameraPosition.builder().
+            target(new LatLng(24.9481, 84.0093)).
             zoom(17).
             bearing(90).
             tilt(65).
@@ -142,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onClick(View view) {
                 if(mapReady){
-                    flyTo(MY_VILLAGE);
+                    flyTo(HOMETOWN);
                 }
 
                 btnDelhi.setEnabled(true);
